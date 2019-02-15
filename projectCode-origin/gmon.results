@@ -1,0 +1,854 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls   s/call   s/call  name    
+ 99.98     62.19    62.19  2122540     0.00     0.00  computeMatch(unsigned char*, int, unsigned char*, int, int, int, int, int, int)
+  0.03     62.21     0.02        1     0.02    62.21  blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int)
+  0.00     62.21     0.00      228     0.00     0.00  cv::Mat::release()
+  0.00     62.21     0.00      224     0.00     0.00  cv::Mat::~Mat()
+  0.00     62.21     0.00      222     0.00     0.00  cv::Mat::MSize::MSize(int*)
+  0.00     62.21     0.00      222     0.00     0.00  cv::Mat::MStep::MStep()
+  0.00     62.21     0.00      218     0.00     0.00  cv::Mat::initEmpty()
+  0.00     62.21     0.00      206     0.00     0.00  cv::Mat::Mat()
+  0.00     62.21     0.00       92     0.00     0.00  option::Option::tag(option::Option*)
+  0.00     62.21     0.00       82     0.00     0.00  option::Parser::instr(char, char const*)
+  0.00     62.21     0.00       50     0.00     0.00  option::Parser::streq(char const*, char const*)
+  0.00     62.21     0.00       44     0.00     0.00  option::Option::init(option::Descriptor const*, char const*, char const*)
+  0.00     62.21     0.00       43     0.00     0.00  cv::Mat::MStep::operator unsigned long() const
+  0.00     62.21     0.00       24     0.00     0.00  option::Option::Option(option::Option const&)
+  0.00     62.21     0.00       24     0.00     0.00  void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&)
+  0.00     62.21     0.00       24     0.00     0.00  option::Option* std::__addressof<option::Option>(option::Option&)
+  0.00     62.21     0.00       24     0.00     0.00  operator new(unsigned long, void*)
+  0.00     62.21     0.00       23     0.00     0.00  option::Option::isTagged(option::Option*)
+  0.00     62.21     0.00       15     0.00     0.00  std::vector<option::Option, std::allocator<option::Option> >::operator[](unsigned long)
+  0.00     62.21     0.00       12     0.00     0.00  scaleImage(cv::Mat*, float)
+  0.00     62.21     0.00       12     0.00     0.00  showOneImage(cv::Mat&)
+  0.00     62.21     0.00       12     0.00     0.00  cv::Mat::MStep::operator[](int)
+  0.00     62.21     0.00       12     0.00     0.00  cv::Mat::create(int, int, int)
+  0.00     62.21     0.00       12     0.00     0.00  cv::Mat::Mat(int, int, int)
+  0.00     62.21     0.00       12     0.00     0.00  cv::Mat::type() const
+  0.00     62.21     0.00       12     0.00     0.00  cv::Mat::MStep::operator[](int) const
+  0.00     62.21     0.00       12     0.00     0.00  option::Option::isLast() const
+  0.00     62.21     0.00       11     0.00     0.00  option::Option::count()
+  0.00     62.21     0.00       11     0.00     0.00  option::Option::first()
+  0.00     62.21     0.00       11     0.00     0.00  option::Option::isFirst() const
+  0.00     62.21     0.00       10     0.00     0.00  option::Option::Option(option::Descriptor const*, char const*, char const*)
+  0.00     62.21     0.00       10     0.00     0.00  option::Option::operator=(option::Option const&)
+  0.00     62.21     0.00        8     0.00     0.00  option::Parser::shift(char const**, int)
+  0.00     62.21     0.00        7     0.00     0.00  option::Option::operator option::Option*()
+  0.00     62.21     0.00        6     0.00     0.00  wallclock()
+  0.00     62.21     0.00        6     0.00     0.00  cv::Vec<double, 4>::Vec()
+  0.00     62.21     0.00        6     0.00     0.00  cv::Matx<double, 4, 1>::Matx()
+  0.00     62.21     0.00        6     0.00     0.00  cv::Scalar_<double>::Scalar_(double, double, double, double)
+  0.00     62.21     0.00        6     0.00     0.00  option::Arg::None(option::Option const&, bool)
+  0.00     62.21     0.00        5     0.00     0.00  option::Stats::CountOptionsAction::perform(option::Option&)
+  0.00     62.21     0.00        5     0.00     0.00  option::Parser::StoreOptionAction::perform(option::Option&)
+  0.00     62.21     0.00        4     0.00     0.00  rotateImage(cv::Mat*, int)
+  0.00     62.21     0.00        4     0.00     0.00  cv::Mat::Mat(cv::Mat const&)
+  0.00     62.21     0.00        4     0.00     0.00  option::Arg::Optional(option::Option const&, bool)
+  0.00     62.21     0.00        4     0.00     0.00  option::Parser::nonOptions()
+  0.00     62.21     0.00        4     0.00     0.00  option::Parser::nonOptionsCount()
+  0.00     62.21     0.00        4     0.00     0.00  option::Parser::nonOption(int)
+  0.00     62.21     0.00        4     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::~new_allocator()
+  0.00     62.21     0.00        4     0.00     0.00  cv::Mat::clone() const
+  0.00     62.21     0.00        4     0.00     0.00  std::allocator<option::Option>::~allocator()
+  0.00     62.21     0.00        4     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_get_Tp_allocator()
+  0.00     62.21     0.00        4     0.00     0.00  std::cos(float)
+  0.00     62.21     0.00        4     0.00     0.00  std::sin(float)
+  0.00     62.21     0.00        2     0.00     0.00  isArgumentADirectory(char const*)
+  0.00     62.21     0.00        2     0.00     0.00  loadOneSampleOrImage(int, char const*)
+  0.00     62.21     0.00        2     0.00     0.00  otsu(unsigned char*, int, int, int, int*)
+  0.00     62.21     0.00        2     0.00     0.00  histogram(cv::Mat*, int*, int)
+  0.00     62.21     0.00        2     0.00     0.00  histogram(unsigned char*, int, int, int, int*)
+  0.00     62.21     0.00        2     0.00     0.00  cv::Mat::operator=(cv::Mat const&)
+  0.00     62.21     0.00        2     0.00     0.00  cv::Point_<int>::Point_(int, int)
+  0.00     62.21     0.00        2     0.00     0.00  option::Option::Option()
+  0.00     62.21     0.00        2     0.00     0.00  option::Parser::Action::Action()
+  0.00     62.21     0.00        2     0.00     0.00  option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::deallocate(option::Option*, unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::allocate(unsigned long, void const*)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::new_allocator(__gnu_cxx::new_allocator<option::Option> const&)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::new_allocator()
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::deallocate(std::allocator<option::Option>&, option::Option*, unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::allocate(std::allocator<option::Option>&, unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<option::Option>::max_size() const
+  0.00     62.21     0.00        2     0.00     0.00  std::allocator<option::Option>::allocator(std::allocator<option::Option> const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::allocator<option::Option>::allocator()
+  0.00     62.21     0.00        2     0.00     0.00  void std::_Destroy_aux<true>::__destroy<option::Option*>(option::Option*, option::Option*)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_allocate(unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::_Vector_impl(std::allocator<option::Option> const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::~_Vector_impl()
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_deallocate(option::Option*, unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_create_storage(unsigned long)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base()
+  0.00     62.21     0.00        2     0.00     0.00  option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&)
+  0.00     62.21     0.00        2     0.00     0.00  std::vector<option::Option, std::allocator<option::Option> >::~vector()
+  0.00     62.21     0.00        2     0.00     0.00  option::Option* std::uninitialized_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&)
+  0.00     62.21     0.00        2     0.00     0.00  option::Option* std::__uninitialized_fill_n_a<option::Option*, unsigned long, option::Option, option::Option>(option::Option*, unsigned long, option::Option const&, std::allocator<option::Option>&)
+  0.00     62.21     0.00        2     0.00     0.00  void std::_Destroy<option::Option*>(option::Option*, option::Option*)
+  0.00     62.21     0.00        2     0.00     0.00  void std::_Destroy<option::Option*, option::Option>(option::Option*, option::Option*, std::allocator<option::Option>&)
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I_Verbose
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z11filterImagePhS_iii
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z11generateXMLPKcRN2cv3MatERSt6vectorINS1_8KeyPointESaIS5_EERS4_INS1_6Point_IiEESaISA_EESD_
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z11rotateImagePN2cv3MatEi
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z12computeMatchPhiS_iiiiii
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z20loadOneSampleOrImageiPKc
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z21harrisCornerDetectionPN2cv3MatERSt6vectorINS_8KeyPointESaIS3_EEf
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9histogramPhiiiPi
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I__Z9startWithPKcS0_
+  0.00     62.21     0.00        1     0.00     0.00  _GLOBAL__sub_I_images_sensors
+  0.00     62.21     0.00        1     0.00     0.00  showImages()
+  0.00     62.21     0.00        1     0.00     0.00  showSamples()
+  0.00     62.21     0.00        1     0.00     0.00  drawRectangle(cv::Mat*, int, int, int, int, int)
+  0.00     62.21     0.00        1     0.00     0.00  histogramImages(int)
+  0.00     62.21     0.00        1     0.00     0.00  histogramSamples(int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00     62.21     0.00        1     0.00     0.00  cv::Point_<int>::Point_(cv::Point_<int> const&)
+  0.00     62.21     0.00        1     0.00     0.00  cv::Scalar_<double>::all(double)
+  0.00     62.21     0.00        1     0.00     0.00  option::Stats::CountOptionsAction::CountOptionsAction(unsigned int*)
+  0.00     62.21     0.00        1     0.00     0.00  option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool)
+  0.00     62.21     0.00        1     0.00     0.00  option::Stats::Stats(option::Descriptor const*, int, char**, int, bool)
+  0.00     62.21     0.00        1     0.00     0.00  option::Option::next()
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::StoreOptionAction::finished(int, char const**)
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int)
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::error()
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int)
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::Action::finished(int, char const**)
+  0.00     62.21     0.00        1     0.00     0.00  option::Parser::Parser(option::Descriptor const*, int, char**, option::Option*, option::Option*, int, bool, int)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+ 
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this 
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.02% of 62.21 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]    100.0    0.00   62.21                 main [1]
+                0.02   62.19       1/1           blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+                0.00    0.00      15/15          std::vector<option::Option, std::allocator<option::Option> >::operator[](unsigned long) [27]
+                0.00    0.00      11/11          option::Option::count() [36]
+                0.00    0.00       6/6           wallclock() [43]
+                0.00    0.00       4/4           option::Parser::nonOptionsCount() [54]
+                0.00    0.00       4/4           option::Parser::nonOption(int) [55]
+                0.00    0.00       2/2           std::allocator<option::Option>::allocator() [80]
+                0.00    0.00       2/2           option::Option::Option() [69]
+                0.00    0.00       2/4           std::allocator<option::Option>::~allocator() [58]
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&) [91]
+                0.00    0.00       2/2           isArgumentADirectory(char const*) [62]
+                0.00    0.00       2/2           loadOneSampleOrImage(int, char const*) [63]
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::~vector() [92]
+                0.00    0.00       1/1           option::Stats::Stats(option::Descriptor const*, int, char**, int, bool) [126]
+                0.00    0.00       1/1           option::Parser::Parser(option::Descriptor const*, int, char**, option::Option*, option::Option*, int, bool, int) [133]
+                0.00    0.00       1/1           option::Parser::error() [130]
+                0.00    0.00       1/7           option::Option::operator option::Option*() [42]
+                0.00    0.00       1/1           option::Option::next() [127]
+                0.00    0.00       1/1           histogramImages(int) [110]
+                0.00    0.00       1/1           histogramSamples(int) [111]
+                0.00    0.00       1/1           drawRectangle(cv::Mat*, int, int, int, int, int) [109]
+                0.00    0.00       1/1           showSamples() [108]
+                0.00    0.00       1/1           showImages() [107]
+-----------------------------------------------
+                0.02   62.19       1/1           main [1]
+[2]    100.0    0.02   62.19       1         blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+               62.19    0.00 2122540/2122540     computeMatch(unsigned char*, int, unsigned char*, int, int, int, int, int, int) [3]
+                0.00    0.00      16/224         cv::Mat::~Mat() [12]
+                0.00    0.00      13/43          cv::Mat::MStep::operator unsigned long() const [21]
+                0.00    0.00      12/12          scaleImage(cv::Mat*, float) [28]
+                0.00    0.00      12/12          showOneImage(cv::Mat&) [29]
+                0.00    0.00       4/4           rotateImage(cv::Mat*, int) [50]
+-----------------------------------------------
+               62.19    0.00 2122540/2122540     blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+[3]    100.0   62.19    0.00 2122540         computeMatch(unsigned char*, int, unsigned char*, int, int, int, int, int, int) [3]
+-----------------------------------------------
+                0.00    0.00       2/228         cv::Mat::operator=(cv::Mat const&) [67]
+                0.00    0.00     226/228         cv::Mat::~Mat() [12]
+[11]     0.0    0.00    0.00     228         cv::Mat::release() [11]
+-----------------------------------------------
+                0.00    0.00       4/224         rotateImage(cv::Mat*, int) [50]
+                0.00    0.00       4/224         loadOneSampleOrImage(int, char const*) [63]
+                0.00    0.00      16/224         blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+                0.00    0.00     100/224         __tcf_0 [343]
+                0.00    0.00     100/224         __tcf_1 [344]
+[12]     0.0    0.00    0.00     224         cv::Mat::~Mat() [12]
+                0.00    0.00     226/228         cv::Mat::release() [11]
+-----------------------------------------------
+                0.00    0.00       4/222         cv::Mat::Mat(cv::Mat const&) [51]
+                0.00    0.00      12/222         cv::Mat::Mat(int, int, int) [32]
+                0.00    0.00     206/222         cv::Mat::Mat() [16]
+[13]     0.0    0.00    0.00     222         cv::Mat::MSize::MSize(int*) [13]
+-----------------------------------------------
+                0.00    0.00       4/222         cv::Mat::Mat(cv::Mat const&) [51]
+                0.00    0.00      12/222         cv::Mat::Mat(int, int, int) [32]
+                0.00    0.00     206/222         cv::Mat::Mat() [16]
+[14]     0.0    0.00    0.00     222         cv::Mat::MStep::MStep() [14]
+-----------------------------------------------
+                0.00    0.00      12/218         cv::Mat::Mat(int, int, int) [32]
+                0.00    0.00     206/218         cv::Mat::Mat() [16]
+[15]     0.0    0.00    0.00     218         cv::Mat::initEmpty() [15]
+-----------------------------------------------
+                0.00    0.00       2/206         loadOneSampleOrImage(int, char const*) [63]
+                0.00    0.00       4/206         cv::Mat::clone() const [57]
+                0.00    0.00     200/206         __static_initialization_and_destruction_0(int, int) [121]
+[16]     0.0    0.00    0.00     206         cv::Mat::Mat() [16]
+                0.00    0.00     206/222         cv::Mat::MSize::MSize(int*) [13]
+                0.00    0.00     206/222         cv::Mat::MStep::MStep() [14]
+                0.00    0.00     206/218         cv::Mat::initEmpty() [15]
+-----------------------------------------------
+                0.00    0.00       4/92          option::Option::Option() [69]
+                0.00    0.00      88/92          option::Option::init(option::Descriptor const*, char const*, char const*) [20]
+[17]     0.0    0.00    0.00      92         option::Option::tag(option::Option*) [17]
+-----------------------------------------------
+                0.00    0.00      82/82          option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[18]     0.0    0.00    0.00      82         option::Parser::instr(char, char const*) [18]
+-----------------------------------------------
+                0.00    0.00      50/50          option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[19]     0.0    0.00    0.00      50         option::Parser::streq(char const*, char const*) [19]
+-----------------------------------------------
+                0.00    0.00      10/44          option::Option::Option(option::Descriptor const*, char const*, char const*) [39]
+                0.00    0.00      10/44          option::Option::operator=(option::Option const&) [40]
+                0.00    0.00      24/44          option::Option::Option(option::Option const&) [22]
+[20]     0.0    0.00    0.00      44         option::Option::init(option::Descriptor const*, char const*, char const*) [20]
+                0.00    0.00      88/92          option::Option::tag(option::Option*) [17]
+-----------------------------------------------
+                0.00    0.00       2/43          histogram(cv::Mat*, int*, int) [65]
+                0.00    0.00       4/43          rotateImage(cv::Mat*, int) [50]
+                0.00    0.00      13/43          blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+                0.00    0.00      24/43          scaleImage(cv::Mat*, float) [28]
+[21]     0.0    0.00    0.00      43         cv::Mat::MStep::operator unsigned long() const [21]
+-----------------------------------------------
+                0.00    0.00      24/24          void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&) [23]
+[22]     0.0    0.00    0.00      24         option::Option::Option(option::Option const&) [22]
+                0.00    0.00      24/44          option::Option::init(option::Descriptor const*, char const*, char const*) [20]
+-----------------------------------------------
+                0.00    0.00      24/24          option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [89]
+[23]     0.0    0.00    0.00      24         void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&) [23]
+                0.00    0.00      24/24          operator new(unsigned long, void*) [25]
+                0.00    0.00      24/24          option::Option::Option(option::Option const&) [22]
+-----------------------------------------------
+                0.00    0.00      24/24          option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [89]
+[24]     0.0    0.00    0.00      24         option::Option* std::__addressof<option::Option>(option::Option&) [24]
+-----------------------------------------------
+                0.00    0.00      24/24          void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&) [23]
+[25]     0.0    0.00    0.00      24         operator new(unsigned long, void*) [25]
+-----------------------------------------------
+                0.00    0.00      11/23          option::Option::isFirst() const [38]
+                0.00    0.00      12/23          option::Option::isLast() const [35]
+[26]     0.0    0.00    0.00      23         option::Option::isTagged(option::Option*) [26]
+-----------------------------------------------
+                0.00    0.00      15/15          main [1]
+[27]     0.0    0.00    0.00      15         std::vector<option::Option, std::allocator<option::Option> >::operator[](unsigned long) [27]
+-----------------------------------------------
+                0.00    0.00      12/12          blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+[28]     0.0    0.00    0.00      12         scaleImage(cv::Mat*, float) [28]
+                0.00    0.00      24/43          cv::Mat::MStep::operator unsigned long() const [21]
+                0.00    0.00      12/12          cv::Mat::type() const [33]
+                0.00    0.00      12/12          cv::Mat::Mat(int, int, int) [32]
+-----------------------------------------------
+                0.00    0.00      12/12          blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+[29]     0.0    0.00    0.00      12         showOneImage(cv::Mat&) [29]
+-----------------------------------------------
+                0.00    0.00       4/12          cv::Mat::operator=(cv::Mat const&) [67]
+                0.00    0.00       8/12          cv::Mat::Mat(cv::Mat const&) [51]
+[30]     0.0    0.00    0.00      12         cv::Mat::MStep::operator[](int) [30]
+-----------------------------------------------
+                0.00    0.00      12/12          cv::Mat::Mat(int, int, int) [32]
+[31]     0.0    0.00    0.00      12         cv::Mat::create(int, int, int) [31]
+-----------------------------------------------
+                0.00    0.00      12/12          scaleImage(cv::Mat*, float) [28]
+[32]     0.0    0.00    0.00      12         cv::Mat::Mat(int, int, int) [32]
+                0.00    0.00      12/222         cv::Mat::MSize::MSize(int*) [13]
+                0.00    0.00      12/222         cv::Mat::MStep::MStep() [14]
+                0.00    0.00      12/218         cv::Mat::initEmpty() [15]
+                0.00    0.00      12/12          cv::Mat::create(int, int, int) [31]
+-----------------------------------------------
+                0.00    0.00      12/12          scaleImage(cv::Mat*, float) [28]
+[33]     0.0    0.00    0.00      12         cv::Mat::type() const [33]
+-----------------------------------------------
+                0.00    0.00       4/12          cv::Mat::operator=(cv::Mat const&) [67]
+                0.00    0.00       8/12          cv::Mat::Mat(cv::Mat const&) [51]
+[34]     0.0    0.00    0.00      12         cv::Mat::MStep::operator[](int) const [34]
+-----------------------------------------------
+                0.00    0.00       1/12          option::Option::next() [127]
+                0.00    0.00      11/12          option::Option::count() [36]
+[35]     0.0    0.00    0.00      12         option::Option::isLast() const [35]
+                0.00    0.00      12/23          option::Option::isTagged(option::Option*) [26]
+-----------------------------------------------
+                0.00    0.00      11/11          main [1]
+[36]     0.0    0.00    0.00      11         option::Option::count() [36]
+                0.00    0.00      11/11          option::Option::first() [37]
+                0.00    0.00      11/12          option::Option::isLast() const [35]
+-----------------------------------------------
+                0.00    0.00      11/11          option::Option::count() [36]
+[37]     0.0    0.00    0.00      11         option::Option::first() [37]
+                0.00    0.00      11/11          option::Option::isFirst() const [38]
+-----------------------------------------------
+                0.00    0.00      11/11          option::Option::first() [37]
+[38]     0.0    0.00    0.00      11         option::Option::isFirst() const [38]
+                0.00    0.00      11/23          option::Option::isTagged(option::Option*) [26]
+-----------------------------------------------
+                0.00    0.00      10/10          option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[39]     0.0    0.00    0.00      10         option::Option::Option(option::Descriptor const*, char const*, char const*) [39]
+                0.00    0.00      10/44          option::Option::init(option::Descriptor const*, char const*, char const*) [20]
+-----------------------------------------------
+                0.00    0.00      10/10          option::Parser::StoreOptionAction::perform(option::Option&) [49]
+[40]     0.0    0.00    0.00      10         option::Option::operator=(option::Option const&) [40]
+                0.00    0.00      10/44          option::Option::init(option::Descriptor const*, char const*, char const*) [20]
+-----------------------------------------------
+                0.00    0.00       8/8           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[41]     0.0    0.00    0.00       8         option::Parser::shift(char const**, int) [41]
+-----------------------------------------------
+                0.00    0.00       1/7           main [1]
+                0.00    0.00       1/7           option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int) [129]
+                0.00    0.00       5/7           option::Parser::StoreOptionAction::perform(option::Option&) [49]
+[42]     0.0    0.00    0.00       7         option::Option::operator option::Option*() [42]
+-----------------------------------------------
+                0.00    0.00       6/6           main [1]
+[43]     0.0    0.00    0.00       6         wallclock() [43]
+-----------------------------------------------
+                0.00    0.00       6/6           cv::Scalar_<double>::Scalar_(double, double, double, double) [46]
+[44]     0.0    0.00    0.00       6         cv::Vec<double, 4>::Vec() [44]
+                0.00    0.00       6/6           cv::Matx<double, 4, 1>::Matx() [45]
+-----------------------------------------------
+                0.00    0.00       6/6           cv::Vec<double, 4>::Vec() [44]
+[45]     0.0    0.00    0.00       6         cv::Matx<double, 4, 1>::Matx() [45]
+-----------------------------------------------
+                0.00    0.00       1/6           cv::Scalar_<double>::all(double) [123]
+                0.00    0.00       5/6           __static_initialization_and_destruction_0(int, int) [121]
+[46]     0.0    0.00    0.00       6         cv::Scalar_<double>::Scalar_(double, double, double, double) [46]
+                0.00    0.00       6/6           cv::Vec<double, 4>::Vec() [44]
+-----------------------------------------------
+                0.00    0.00       6/6           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[47]     0.0    0.00    0.00       6         option::Arg::None(option::Option const&, bool) [47]
+-----------------------------------------------
+                0.00    0.00       5/5           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[48]     0.0    0.00    0.00       5         option::Stats::CountOptionsAction::perform(option::Option&) [48]
+-----------------------------------------------
+                0.00    0.00       5/5           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[49]     0.0    0.00    0.00       5         option::Parser::StoreOptionAction::perform(option::Option&) [49]
+                0.00    0.00      10/10          option::Option::operator=(option::Option const&) [40]
+                0.00    0.00       5/7           option::Option::operator option::Option*() [42]
+-----------------------------------------------
+                0.00    0.00       4/4           blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [2]
+[50]     0.0    0.00    0.00       4         rotateImage(cv::Mat*, int) [50]
+                0.00    0.00       4/4           cv::Mat::clone() const [57]
+                0.00    0.00       4/4           cv::Mat::Mat(cv::Mat const&) [51]
+                0.00    0.00       4/224         cv::Mat::~Mat() [12]
+                0.00    0.00       4/43          cv::Mat::MStep::operator unsigned long() const [21]
+                0.00    0.00       4/4           std::cos(float) [60]
+                0.00    0.00       4/4           std::sin(float) [61]
+-----------------------------------------------
+                0.00    0.00       4/4           rotateImage(cv::Mat*, int) [50]
+[51]     0.0    0.00    0.00       4         cv::Mat::Mat(cv::Mat const&) [51]
+                0.00    0.00       8/12          cv::Mat::MStep::operator[](int) [30]
+                0.00    0.00       8/12          cv::Mat::MStep::operator[](int) const [34]
+                0.00    0.00       4/222         cv::Mat::MSize::MSize(int*) [13]
+                0.00    0.00       4/222         cv::Mat::MStep::MStep() [14]
+-----------------------------------------------
+                0.00    0.00       4/4           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[52]     0.0    0.00    0.00       4         option::Arg::Optional(option::Option const&, bool) [52]
+-----------------------------------------------
+                0.00    0.00       4/4           option::Parser::nonOption(int) [55]
+[53]     0.0    0.00    0.00       4         option::Parser::nonOptions() [53]
+-----------------------------------------------
+                0.00    0.00       4/4           main [1]
+[54]     0.0    0.00    0.00       4         option::Parser::nonOptionsCount() [54]
+-----------------------------------------------
+                0.00    0.00       4/4           main [1]
+[55]     0.0    0.00    0.00       4         option::Parser::nonOption(int) [55]
+                0.00    0.00       4/4           option::Parser::nonOptions() [53]
+-----------------------------------------------
+                0.00    0.00       4/4           std::allocator<option::Option>::~allocator() [58]
+[56]     0.0    0.00    0.00       4         __gnu_cxx::new_allocator<option::Option>::~new_allocator() [56]
+-----------------------------------------------
+                0.00    0.00       4/4           rotateImage(cv::Mat*, int) [50]
+[57]     0.0    0.00    0.00       4         cv::Mat::clone() const [57]
+                0.00    0.00       4/206         cv::Mat::Mat() [16]
+-----------------------------------------------
+                0.00    0.00       2/4           main [1]
+                0.00    0.00       2/4           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::~_Vector_impl() [84]
+[58]     0.0    0.00    0.00       4         std::allocator<option::Option>::~allocator() [58]
+                0.00    0.00       4/4           __gnu_cxx::new_allocator<option::Option>::~new_allocator() [56]
+-----------------------------------------------
+                0.00    0.00       2/4           std::vector<option::Option, std::allocator<option::Option> >::~vector() [92]
+                0.00    0.00       2/4           std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&) [90]
+[59]     0.0    0.00    0.00       4         std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_get_Tp_allocator() [59]
+-----------------------------------------------
+                0.00    0.00       4/4           rotateImage(cv::Mat*, int) [50]
+[60]     0.0    0.00    0.00       4         std::cos(float) [60]
+-----------------------------------------------
+                0.00    0.00       4/4           rotateImage(cv::Mat*, int) [50]
+[61]     0.0    0.00    0.00       4         std::sin(float) [61]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[62]     0.0    0.00    0.00       2         isArgumentADirectory(char const*) [62]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[63]     0.0    0.00    0.00       2         loadOneSampleOrImage(int, char const*) [63]
+                0.00    0.00       4/224         cv::Mat::~Mat() [12]
+                0.00    0.00       2/206         cv::Mat::Mat() [16]
+                0.00    0.00       2/2           cv::Mat::operator=(cv::Mat const&) [67]
+-----------------------------------------------
+                0.00    0.00       2/2           histogram(cv::Mat*, int*, int) [65]
+[64]     0.0    0.00    0.00       2         otsu(unsigned char*, int, int, int, int*) [64]
+-----------------------------------------------
+                0.00    0.00       1/2           histogramImages(int) [110]
+                0.00    0.00       1/2           histogramSamples(int) [111]
+[65]     0.0    0.00    0.00       2         histogram(cv::Mat*, int*, int) [65]
+                0.00    0.00       2/43          cv::Mat::MStep::operator unsigned long() const [21]
+                0.00    0.00       2/2           histogram(unsigned char*, int, int, int, int*) [66]
+                0.00    0.00       2/2           otsu(unsigned char*, int, int, int, int*) [64]
+-----------------------------------------------
+                0.00    0.00       2/2           histogram(cv::Mat*, int*, int) [65]
+[66]     0.0    0.00    0.00       2         histogram(unsigned char*, int, int, int, int*) [66]
+-----------------------------------------------
+                0.00    0.00       2/2           loadOneSampleOrImage(int, char const*) [63]
+[67]     0.0    0.00    0.00       2         cv::Mat::operator=(cv::Mat const&) [67]
+                0.00    0.00       4/12          cv::Mat::MStep::operator[](int) [30]
+                0.00    0.00       4/12          cv::Mat::MStep::operator[](int) const [34]
+                0.00    0.00       2/228         cv::Mat::release() [11]
+-----------------------------------------------
+                0.00    0.00       2/2           drawRectangle(cv::Mat*, int, int, int, int, int) [109]
+[68]     0.0    0.00    0.00       2         cv::Point_<int>::Point_(int, int) [68]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[69]     0.0    0.00    0.00       2         option::Option::Option() [69]
+                0.00    0.00       4/92          option::Option::tag(option::Option*) [17]
+-----------------------------------------------
+                0.00    0.00       1/2           option::Stats::CountOptionsAction::CountOptionsAction(unsigned int*) [124]
+                0.00    0.00       1/2           option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int) [129]
+[70]     0.0    0.00    0.00       2         option::Parser::Action::Action() [70]
+-----------------------------------------------
+                0.00    0.00       1/2           option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int) [131]
+                0.00    0.00       1/2           option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool) [125]
+[71]     0.0    0.00    0.00       2         option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+                0.00    0.00      82/82          option::Parser::instr(char, char const*) [18]
+                0.00    0.00      50/50          option::Parser::streq(char const*, char const*) [19]
+                0.00    0.00      10/10          option::Option::Option(option::Descriptor const*, char const*, char const*) [39]
+                0.00    0.00       8/8           option::Parser::shift(char const**, int) [41]
+                0.00    0.00       6/6           option::Arg::None(option::Option const&, bool) [47]
+                0.00    0.00       5/5           option::Parser::StoreOptionAction::perform(option::Option&) [49]
+                0.00    0.00       5/5           option::Stats::CountOptionsAction::perform(option::Option&) [48]
+                0.00    0.00       4/4           option::Arg::Optional(option::Option const&, bool) [52]
+                0.00    0.00       1/1           option::Parser::StoreOptionAction::finished(int, char const**) [128]
+                0.00    0.00       1/1           option::Parser::Action::finished(int, char const**) [132]
+-----------------------------------------------
+                0.00    0.00       2/2           __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::deallocate(std::allocator<option::Option>&, option::Option*, unsigned long) [76]
+[72]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<option::Option>::deallocate(option::Option*, unsigned long) [72]
+-----------------------------------------------
+                0.00    0.00       2/2           __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::allocate(std::allocator<option::Option>&, unsigned long) [77]
+[73]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<option::Option>::allocate(unsigned long, void const*) [73]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::max_size() const [78]
+-----------------------------------------------
+                0.00    0.00       2/2           std::allocator<option::Option>::allocator(std::allocator<option::Option> const&) [79]
+[74]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<option::Option>::new_allocator(__gnu_cxx::new_allocator<option::Option> const&) [74]
+-----------------------------------------------
+                0.00    0.00       2/2           std::allocator<option::Option>::allocator() [80]
+[75]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<option::Option>::new_allocator() [75]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_deallocate(option::Option*, unsigned long) [85]
+[76]     0.0    0.00    0.00       2         __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::deallocate(std::allocator<option::Option>&, option::Option*, unsigned long) [76]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::deallocate(option::Option*, unsigned long) [72]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_allocate(unsigned long) [82]
+[77]     0.0    0.00    0.00       2         __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::allocate(std::allocator<option::Option>&, unsigned long) [77]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::allocate(unsigned long, void const*) [73]
+-----------------------------------------------
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::allocate(unsigned long, void const*) [73]
+[78]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<option::Option>::max_size() const [78]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::_Vector_impl(std::allocator<option::Option> const&) [83]
+[79]     0.0    0.00    0.00       2         std::allocator<option::Option>::allocator(std::allocator<option::Option> const&) [79]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::new_allocator(__gnu_cxx::new_allocator<option::Option> const&) [74]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[80]     0.0    0.00    0.00       2         std::allocator<option::Option>::allocator() [80]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<option::Option>::new_allocator() [75]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::_Destroy<option::Option*>(option::Option*, option::Option*) [95]
+[81]     0.0    0.00    0.00       2         void std::_Destroy_aux<true>::__destroy<option::Option*>(option::Option*, option::Option*) [81]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_create_storage(unsigned long) [86]
+[82]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_allocate(unsigned long) [82]
+                0.00    0.00       2/2           __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::allocate(std::allocator<option::Option>&, unsigned long) [77]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&) [87]
+[83]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::_Vector_impl(std::allocator<option::Option> const&) [83]
+                0.00    0.00       2/2           std::allocator<option::Option>::allocator(std::allocator<option::Option> const&) [79]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base() [88]
+[84]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::~_Vector_impl() [84]
+                0.00    0.00       2/4           std::allocator<option::Option>::~allocator() [58]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base() [88]
+[85]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_deallocate(option::Option*, unsigned long) [85]
+                0.00    0.00       2/2           __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::deallocate(std::allocator<option::Option>&, option::Option*, unsigned long) [76]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&) [87]
+[86]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_create_storage(unsigned long) [86]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_allocate(unsigned long) [82]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&) [91]
+[87]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&) [87]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::_Vector_impl(std::allocator<option::Option> const&) [83]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_create_storage(unsigned long) [86]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::~vector() [92]
+[88]     0.0    0.00    0.00       2         std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base() [88]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_deallocate(option::Option*, unsigned long) [85]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::~_Vector_impl() [84]
+-----------------------------------------------
+                0.00    0.00       2/2           option::Option* std::uninitialized_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [93]
+[89]     0.0    0.00    0.00       2         option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [89]
+                0.00    0.00      24/24          option::Option* std::__addressof<option::Option>(option::Option&) [24]
+                0.00    0.00      24/24          void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&) [23]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&) [91]
+[90]     0.0    0.00    0.00       2         std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&) [90]
+                0.00    0.00       2/4           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_get_Tp_allocator() [59]
+                0.00    0.00       2/2           option::Option* std::__uninitialized_fill_n_a<option::Option*, unsigned long, option::Option, option::Option>(option::Option*, unsigned long, option::Option const&, std::allocator<option::Option>&) [94]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[91]     0.0    0.00    0.00       2         std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&) [91]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&) [87]
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&) [90]
+-----------------------------------------------
+                0.00    0.00       2/2           main [1]
+[92]     0.0    0.00    0.00       2         std::vector<option::Option, std::allocator<option::Option> >::~vector() [92]
+                0.00    0.00       2/4           std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_get_Tp_allocator() [59]
+                0.00    0.00       2/2           void std::_Destroy<option::Option*, option::Option>(option::Option*, option::Option*, std::allocator<option::Option>&) [96]
+                0.00    0.00       2/2           std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base() [88]
+-----------------------------------------------
+                0.00    0.00       2/2           option::Option* std::__uninitialized_fill_n_a<option::Option*, unsigned long, option::Option, option::Option>(option::Option*, unsigned long, option::Option const&, std::allocator<option::Option>&) [94]
+[93]     0.0    0.00    0.00       2         option::Option* std::uninitialized_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [93]
+                0.00    0.00       2/2           option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [89]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&) [90]
+[94]     0.0    0.00    0.00       2         option::Option* std::__uninitialized_fill_n_a<option::Option*, unsigned long, option::Option, option::Option>(option::Option*, unsigned long, option::Option const&, std::allocator<option::Option>&) [94]
+                0.00    0.00       2/2           option::Option* std::uninitialized_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&) [93]
+-----------------------------------------------
+                0.00    0.00       2/2           void std::_Destroy<option::Option*, option::Option>(option::Option*, option::Option*, std::allocator<option::Option>&) [96]
+[95]     0.0    0.00    0.00       2         void std::_Destroy<option::Option*>(option::Option*, option::Option*) [95]
+                0.00    0.00       2/2           void std::_Destroy_aux<true>::__destroy<option::Option*>(option::Option*, option::Option*) [81]
+-----------------------------------------------
+                0.00    0.00       2/2           std::vector<option::Option, std::allocator<option::Option> >::~vector() [92]
+[96]     0.0    0.00    0.00       2         void std::_Destroy<option::Option*, option::Option>(option::Option*, option::Option*, std::allocator<option::Option>&) [96]
+                0.00    0.00       2/2           void std::_Destroy<option::Option*>(option::Option*, option::Option*) [95]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[97]     0.0    0.00    0.00       1         _GLOBAL__sub_I_Verbose [97]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [121]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[98]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z11filterImagePhS_iii [98]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[99]     0.0    0.00    0.00       1         _GLOBAL__sub_I__Z11generateXMLPKcRN2cv3MatERSt6vectorINS1_8KeyPointESaIS5_EERS4_INS1_6Point_IiEESaISA_EESD_ [99]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [118]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[100]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z11rotateImagePN2cv3MatEi [100]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [115]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[101]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z12computeMatchPhiS_iiiiii [101]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [113]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[102]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z20loadOneSampleOrImageiPKc [102]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[103]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z21harrisCornerDetectionPN2cv3MatERSt6vectorINS_8KeyPointESaIS3_EEf [103]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[104]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9histogramPhiiiPi [104]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [119]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[105]    0.0    0.00    0.00       1         _GLOBAL__sub_I__Z9startWithPKcS0_ [105]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [112]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [342]
+[106]    0.0    0.00    0.00       1         _GLOBAL__sub_I_images_sensors [106]
+                0.00    0.00       1/1           __static_initialization_and_destruction_0(int, int) [120]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[107]    0.0    0.00    0.00       1         showImages() [107]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[108]    0.0    0.00    0.00       1         showSamples() [108]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[109]    0.0    0.00    0.00       1         drawRectangle(cv::Mat*, int, int, int, int, int) [109]
+                0.00    0.00       2/2           cv::Point_<int>::Point_(int, int) [68]
+                0.00    0.00       1/1           cv::Scalar_<double>::all(double) [123]
+                0.00    0.00       1/1           cv::Point_<int>::Point_(cv::Point_<int> const&) [122]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[110]    0.0    0.00    0.00       1         histogramImages(int) [110]
+                0.00    0.00       1/2           histogram(cv::Mat*, int*, int) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[111]    0.0    0.00    0.00       1         histogramSamples(int) [111]
+                0.00    0.00       1/2           histogram(cv::Mat*, int*, int) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z9startWithPKcS0_ [105]
+[112]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [112]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z12computeMatchPhiS_iiiiii [101]
+[113]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [113]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z21harrisCornerDetectionPN2cv3MatERSt6vectorINS_8KeyPointESaIS3_EEf [103]
+[114]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [114]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z11rotateImagePN2cv3MatEi [100]
+[115]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [115]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z11filterImagePhS_iii [98]
+[116]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [116]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z20loadOneSampleOrImageiPKc [102]
+[117]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [117]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z11generateXMLPKcRN2cv3MatERSt6vectorINS1_8KeyPointESaIS5_EERS4_INS1_6Point_IiEESaISA_EESD_ [99]
+[118]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [118]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I__Z9histogramPhiiiPi [104]
+[119]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [119]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_images_sensors [106]
+[120]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [120]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_Verbose [97]
+[121]    0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [121]
+                0.00    0.00     200/206         cv::Mat::Mat() [16]
+                0.00    0.00       5/6           cv::Scalar_<double>::Scalar_(double, double, double, double) [46]
+-----------------------------------------------
+                0.00    0.00       1/1           drawRectangle(cv::Mat*, int, int, int, int, int) [109]
+[122]    0.0    0.00    0.00       1         cv::Point_<int>::Point_(cv::Point_<int> const&) [122]
+-----------------------------------------------
+                0.00    0.00       1/1           drawRectangle(cv::Mat*, int, int, int, int, int) [109]
+[123]    0.0    0.00    0.00       1         cv::Scalar_<double>::all(double) [123]
+                0.00    0.00       1/6           cv::Scalar_<double>::Scalar_(double, double, double, double) [46]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool) [125]
+[124]    0.0    0.00    0.00       1         option::Stats::CountOptionsAction::CountOptionsAction(unsigned int*) [124]
+                0.00    0.00       1/2           option::Parser::Action::Action() [70]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Stats::Stats(option::Descriptor const*, int, char**, int, bool) [126]
+[125]    0.0    0.00    0.00       1         option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool) [125]
+                0.00    0.00       1/1           option::Stats::CountOptionsAction::CountOptionsAction(unsigned int*) [124]
+                0.00    0.00       1/2           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[126]    0.0    0.00    0.00       1         option::Stats::Stats(option::Descriptor const*, int, char**, int, bool) [126]
+                0.00    0.00       1/1           option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool) [125]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[127]    0.0    0.00    0.00       1         option::Option::next() [127]
+                0.00    0.00       1/12          option::Option::isLast() const [35]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[128]    0.0    0.00    0.00       1         option::Parser::StoreOptionAction::finished(int, char const**) [128]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int) [131]
+[129]    0.0    0.00    0.00       1         option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int) [129]
+                0.00    0.00       1/2           option::Parser::Action::Action() [70]
+                0.00    0.00       1/7           option::Option::operator option::Option*() [42]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[130]    0.0    0.00    0.00       1         option::Parser::error() [130]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Parser::Parser(option::Descriptor const*, int, char**, option::Option*, option::Option*, int, bool, int) [133]
+[131]    0.0    0.00    0.00       1         option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int) [131]
+                0.00    0.00       1/1           option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int) [129]
+                0.00    0.00       1/2           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+-----------------------------------------------
+                0.00    0.00       1/1           option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int) [71]
+[132]    0.0    0.00    0.00       1         option::Parser::Action::finished(int, char const**) [132]
+-----------------------------------------------
+                0.00    0.00       1/1           main [1]
+[133]    0.0    0.00    0.00       1         option::Parser::Parser(option::Descriptor const*, int, char**, option::Option*, option::Option*, int, bool, int) [133]
+                0.00    0.00       1/1           option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int) [131]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [97] _GLOBAL__sub_I_Verbose (imageProcessing.cpp) [51] cv::Mat::Mat(cv::Mat const&) [133] option::Parser::Parser(option::Descriptor const*, int, char**, option::Option*, option::Option*, int, bool, int)
+  [98] _GLOBAL__sub_I__Z11filterImagePhS_iii (filterImage.cpp) [32] cv::Mat::Mat(int, int, int) [72] __gnu_cxx::new_allocator<option::Option>::deallocate(option::Option*, unsigned long)
+  [99] _GLOBAL__sub_I__Z11generateXMLPKcRN2cv3MatERSt6vectorINS1_8KeyPointESaIS5_EERS4_INS1_6Point_IiEESaISA_EESD_ (xml.cpp) [16] cv::Mat::Mat() [73] __gnu_cxx::new_allocator<option::Option>::allocate(unsigned long, void const*)
+ [100] _GLOBAL__sub_I__Z11rotateImagePN2cv3MatEi (transformImage.cpp) [12] cv::Mat::~Mat() [74] __gnu_cxx::new_allocator<option::Option>::new_allocator(__gnu_cxx::new_allocator<option::Option> const&)
+ [101] _GLOBAL__sub_I__Z12computeMatchPhiS_iiiiii (blockMatching.cpp) [67] cv::Mat::operator=(cv::Mat const&) [75] __gnu_cxx::new_allocator<option::Option>::new_allocator()
+ [102] _GLOBAL__sub_I__Z20loadOneSampleOrImageiPKc (loadImages.cpp) [44] cv::Vec<double, 4>::Vec() [56] __gnu_cxx::new_allocator<option::Option>::~new_allocator()
+ [103] _GLOBAL__sub_I__Z21harrisCornerDetectionPN2cv3MatERSt6vectorINS_8KeyPointESaIS3_EEf (cornerDetection.cpp) [45] cv::Matx<double, 4, 1>::Matx() [76] __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::deallocate(std::allocator<option::Option>&, option::Option*, unsigned long)
+ [104] _GLOBAL__sub_I__Z9histogramPhiiiPi (histogram.cpp) [122] cv::Point_<int>::Point_(cv::Point_<int> const&) [77] __gnu_cxx::__alloc_traits<std::allocator<option::Option> >::allocate(std::allocator<option::Option>&, unsigned long)
+ [105] _GLOBAL__sub_I__Z9startWithPKcS0_ (utilities.cpp) [68] cv::Point_<int>::Point_(int, int) [33] cv::Mat::type() const
+ [106] _GLOBAL__sub_I_images_sensors (sensors.cpp) [123] cv::Scalar_<double>::all(double) [21] cv::Mat::MStep::operator unsigned long() const
+  [28] scaleImage(cv::Mat*, float) [46] cv::Scalar_<double>::Scalar_(double, double, double, double) [34] cv::Mat::MStep::operator[](int) const
+ [107] showImages()           [47] option::Arg::None(option::Option const&, bool) [57] cv::Mat::clone() const
+  [50] rotateImage(cv::Mat*, int) [52] option::Arg::Optional(option::Option const&, bool) [35] option::Option::isLast() const
+ [108] showSamples()          [48] option::Stats::CountOptionsAction::perform(option::Option&) [38] option::Option::isFirst() const
+   [3] computeMatch(unsigned char*, int, unsigned char*, int, int, int, int, int, int) [124] option::Stats::CountOptionsAction::CountOptionsAction(unsigned int*) [78] __gnu_cxx::new_allocator<option::Option>::max_size() const
+  [29] showOneImage(cv::Mat&) [125] option::Stats::add(bool, option::Descriptor const*, int, char const**, int, bool) [79] std::allocator<option::Option>::allocator(std::allocator<option::Option> const&)
+ [109] drawRectangle(cv::Mat*, int, int, int, int, int) [126] option::Stats::Stats(option::Descriptor const*, int, char**, int, bool) [80] std::allocator<option::Option>::allocator()
+ [110] histogramImages(int)   [17] option::Option::tag(option::Option*) [58] std::allocator<option::Option>::~allocator()
+ [111] histogramSamples(int)  [20] option::Option::init(option::Descriptor const*, char const*, char const*) [81] void std::_Destroy_aux<true>::__destroy<option::Option*>(option::Option*, option::Option*)
+  [62] isArgumentADirectory(char const*) [127] option::Option::next() [82] std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_allocate(unsigned long)
+  [63] loadOneSampleOrImage(int, char const*) [36] option::Option::count() [83] std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::_Vector_impl(std::allocator<option::Option> const&)
+   [2] blockMatchingWithScalingAndRotation(cv::Mat*, cv::Mat*, int, unsigned char*, int) [37] option::Option::first() [84] std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_impl::~_Vector_impl()
+ [112] __static_initialization_and_destruction_0(int, int) (utilities.cpp) [26] option::Option::isTagged(option::Option*) [85] std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_deallocate(option::Option*, unsigned long)
+ [113] __static_initialization_and_destruction_0(int, int) (blockMatching.cpp) [39] option::Option::Option(option::Descriptor const*, char const*, char const*) [86] std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_create_storage(unsigned long)
+ [114] __static_initialization_and_destruction_0(int, int) (cornerDetection.cpp) [22] option::Option::Option(option::Option const&) [59] std::_Vector_base<option::Option, std::allocator<option::Option> >::_M_get_Tp_allocator()
+ [115] __static_initialization_and_destruction_0(int, int) (transformImage.cpp) [69] option::Option::Option() [87] std::_Vector_base<option::Option, std::allocator<option::Option> >::_Vector_base(unsigned long, std::allocator<option::Option> const&)
+ [116] __static_initialization_and_destruction_0(int, int) (filterImage.cpp) [40] option::Option::operator=(option::Option const&) [88] std::_Vector_base<option::Option, std::allocator<option::Option> >::~_Vector_base()
+ [117] __static_initialization_and_destruction_0(int, int) (loadImages.cpp) [42] option::Option::operator option::Option*() [89] option::Option* std::__uninitialized_fill_n<false>::__uninit_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&)
+ [118] __static_initialization_and_destruction_0(int, int) (xml.cpp) [53] option::Parser::nonOptions() [90] std::vector<option::Option, std::allocator<option::Option> >::_M_fill_initialize(unsigned long, option::Option const&)
+ [119] __static_initialization_and_destruction_0(int, int) (histogram.cpp) [54] option::Parser::nonOptionsCount() [91] std::vector<option::Option, std::allocator<option::Option> >::vector(unsigned long, option::Option const&, std::allocator<option::Option> const&)
+ [120] __static_initialization_and_destruction_0(int, int) (sensors.cpp) [49] option::Parser::StoreOptionAction::perform(option::Option&) [92] std::vector<option::Option, std::allocator<option::Option> >::~vector()
+ [121] __static_initialization_and_destruction_0(int, int) (imageProcessing.cpp) [128] option::Parser::StoreOptionAction::finished(int, char const**) [27] std::vector<option::Option, std::allocator<option::Option> >::operator[](unsigned long)
+  [64] otsu(unsigned char*, int, int, int, int*) [129] option::Parser::StoreOptionAction::StoreOptionAction(option::Parser&, option::Option*, option::Option*, int) [23] void std::_Construct<option::Option, option::Option>(option::Option*, option::Option const&)
+  [65] histogram(cv::Mat*, int*, int) [130] option::Parser::error() [24] option::Option* std::__addressof<option::Option>(option::Option&)
+  [66] histogram(unsigned char*, int, int, int, int*) [18] option::Parser::instr(char, char const*) [93] option::Option* std::uninitialized_fill_n<option::Option*, unsigned long, option::Option>(option::Option*, unsigned long, option::Option const&)
+  [43] wallclock()           [131] option::Parser::parse(bool, option::Descriptor const*, int, char const**, option::Option*, option::Option*, int, bool, int) [94] option::Option* std::__uninitialized_fill_n_a<option::Option*, unsigned long, option::Option, option::Option>(option::Option*, unsigned long, option::Option const&, std::allocator<option::Option>&)
+  [13] cv::Mat::MSize::MSize(int*) [41] option::Parser::shift(char const**, int) [60] std::cos(float)
+  [14] cv::Mat::MStep::MStep() [19] option::Parser::streq(char const*, char const*) [61] std::sin(float)
+  [30] cv::Mat::MStep::operator[](int) [132] option::Parser::Action::finished(int, char const**) [95] void std::_Destroy<option::Option*>(option::Option*, option::Option*)
+  [31] cv::Mat::create(int, int, int) [70] option::Parser::Action::Action() [96] void std::_Destroy<option::Option*, option::Option>(option::Option*, option::Option*, std::allocator<option::Option>&)
+  [11] cv::Mat::release()     [55] option::Parser::nonOption(int) [25] operator new(unsigned long, void*)
+  [15] cv::Mat::initEmpty()   [71] option::Parser::workhorse(bool, option::Descriptor const*, int, char const**, option::Parser::Action&, bool, bool, int)

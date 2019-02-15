@@ -1,0 +1,266 @@
+
+  //  Mat *ss = scaleImage(&image_gray[0],0.5);
+  //Mat *rr = rotateImage(&image_gray[0],40);
+
+  //  Mat *fil = filterImage(&image_gray[0]);
+  // namedWindow( "Output0", CV_WINDOW_AUTOSIZE );
+  // imshow( "Output0",*fil);
+
+
+  std::vector<cv::KeyPoint> keypoints1;
+  std::vector<cv::KeyPoint> keypoints2;
+  OrbFeatureDetector detector1(100),detector2(100);
+  cv::Mat output1;
+  cv::Mat output2;
+
+  if (!options[OCV].count()){  
+    harrisCornerDetection(&image_gray[0],keypoints1,0.0); 
+    harrisCornerDetection(&sample_gray[0],keypoints2,0.0); 
+    cv::drawKeypoints(image_gray[0], keypoints1, output1);
+    cv::drawKeypoints(sample_gray[0], keypoints2, output2);
+    namedWindow( "Output2", CV_WINDOW_AUTOSIZE );
+    imshow( "Output2",output2);
+
+  } else {
+    // OpenCV version for checking purpose
+    // does not work on small images: 
+    // BRIEF and ORB use a 32x32 patch to get the descriptor. 
+    // Since it doesn't fit your image, they remove those keypoints (to avoid returning keypoints without descriptor).
+
+    detector1.detect(image_gray[0], keypoints1);
+    detector2.detect(sample_gray[0], keypoints2);
+    cv::drawKeypoints(image_gray[0], keypoints1, output1);
+    cv::drawKeypoints(sample_gray[0], keypoints2, output2);
+  }
+
+  //Lets try kmeans to group keypoints
+  int clusterCount = 5;  
+  Mat labels;  
+  int attempts = 3;  
+  Mat centers;
+  Mat samples(keypoints1.size(), 2, CV_32F);  //x,y
+  
+  for(k=0; k<keypoints1.size(); k++){
+    samples.at<float>(k,0)=keypoints1[k].pt.x;
+    samples.at<float>(k,1)=keypoints1[k].pt.y;
+  }
+  cv::kmeans(samples, 
+	     clusterCount, 
+	     labels, 
+	     TermCriteria(CV_TERMCRIT_ITER|CV_TERMCRIT_EPS, 10, 1.0), 
+	     attempts, 
+	     KMEANS_RANDOM_CENTERS, 
+	     centers);
+  
+  for(k=0; k<keypoints1.size(); k++){
+    int cluster_idx = labels.at<int>(k);
+    printf("Cluster_idx x=%f y=%f --> %d\n",keypoints1[k].pt.x,keypoints1[k].pt.y,cluster_idx);
+  }
+  
+  for( k = 0; k < keypoints1.size(); k++ ){
+    int cluster_idx = labels.at<int>(k);
+    circle(output1,keypoints1[k].pt, 8, colorTab[cluster_idx]);
+  }
+  // Need to create the box for each cluster and output it 
+  // in an xml descriptor that can then be re-read...
+  
+  //TBW
+  std::vector<cv::Point> boxLeftCorner;
+  std::vector<cv::Point> boxRightCorner;
+  for (int i= 0; i < clusterCount; i++){
+    int minXbox = INT_MAX, maxXbox = INT_MIN;
+    int minYbox = INT_MAX, maxYbox = INT_MIN;
+    for( k = 0; k < keypoints1.size(); k++ ){
+      int cluster_idx = labels.at<int>(k);
+      if (cluster_idx ==i){
+	if (keypoints1[k].pt.x >  maxXbox) {
+	  maxXbox = keypoints1[k].pt.x;
+	}
+	if (keypoints1[k].pt.x <  minXbox) {
+	  minXbox = keypoints1[k].pt.x;
+	}
+	
+	if (keypoints1[k].pt.y >  maxYbox) {
+	  maxYbox = keypoints1[k].pt.y;
+	}
+	if (keypoints1[k].pt.y <  minYbox) {
+	  minYbox = keypoints1[k].pt.y;
+	}
+      }
+    }
+    printf("Box (%d,%d) (%d,%d)\n",minXbox,minYbox,maxXbox,maxYbox);
+    boxLeftCorner.push_back(*(new Point(minXbox,minYbox)));
+    boxRightCorner.push_back(*(new Point(maxXbox,maxYbox)));
+    if (maxXbox != INT_MIN){
+      rectangle(output1,
+		Point(minXbox,minYbox),
+		Point(maxXbox,maxYbox),
+		colorTab[i]);
+    }
+  }
+  
+  for(int b = 0; b < boxLeftCorner.size(); b++){
+    xmlTextWriterPtr writer;
+    xmlChar *tmp;
+    int rc;
+    writer = xmlNewTextWriterFilename("tempBoxDescriptor.xml", 0);
+    if (writer == NULL) {
+      printf("testXmlwriterFilename: Error creating the xml writer\n");
+      return -1;
+    }
+    rc = xmlTextWriterStartDocument(writer, NULL, MY_ENCODING, NULL);
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterStartDocument\n");
+      return -1;
+    }
+    rc = xmlTextWriterStartElement(writer, BAD_CAST "boxOfKeypoints");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+      return -1;
+    }
+    ////////// inside  boxOfKeypoints
+    
+    rc = xmlTextWriterWriteAttribute(writer, BAD_CAST "imagename",BAD_CAST "tobegiven");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+      return -1;
+    }
+    
+    // leftcorner
+    rc = xmlTextWriterStartElement(writer, BAD_CAST "leftcorner");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+      return -1;
+    }
+    rc = xmlTextWriterWriteAttribute(writer, BAD_CAST "x",BAD_CAST "0");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+      return -1;
+    }
+    rc = xmlTextWriterWriteAttribute(writer, BAD_CAST "y",BAD_CAST "100");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+      return -1;
+    }
+    rc = xmlTextWriterEndElement(writer);
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterEndElement\n");
+      return -1;
+    }
+    //
+    // rightcorner
+    rc = xmlTextWriterStartElement(writer, BAD_CAST "rightcorner");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterStartElement\n");
+      return -1;
+    }
+    rc = xmlTextWriterWriteAttribute(writer, BAD_CAST "x",BAD_CAST "20");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+      return -1;
+    }
+    rc = xmlTextWriterWriteAttribute(writer, BAD_CAST "y",BAD_CAST "120");
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterWriteAttribute\n");
+      return -1;
+    }
+    rc = xmlTextWriterEndElement(writer);
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterEndElement\n");
+      return -1;
+    }
+    //////
+    //need to put the keypoints here
+    
+    ///////// end of boxOfKeypoints
+    rc = xmlTextWriterEndElement(writer);
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterEndElement\n");
+      return -1;
+    }
+    
+    rc = xmlTextWriterEndDocument(writer);
+    if (rc < 0) {
+      printf("testXmlwriterFilename: Error at xmlTextWriterEndDocument\n");
+      return -1;
+    }
+    xmlFreeTextWriter(writer);
+  }
+  
+  namedWindow( "Output1", CV_WINDOW_AUTOSIZE );
+  imshow( "Output1",output1);
+  waitKey(0);
+  
+  ///////////////////////////////////
+  ///////////////////////////////////
+  ///////////////////////////////////
+  
+    
+  printf("Found %lu keypoints for Output1\n",keypoints1.size());
+  printf("Found %lu keypoints for Output2\n",keypoints2.size());
+  // computing descriptors
+  OrbDescriptorExtractor extractor1,extractor2;
+  Mat descriptors1, descriptors2;
+  extractor1.compute(image_gray[0], keypoints1, descriptors1);
+  extractor2.compute(sample_gray[0], keypoints2, descriptors2); // does not work on small images...
+
+  // descriptors – Computed descriptors. In the second variant of the method descriptors[i] 
+  // are descriptors computed for a keypoints[i]. Row j is the keypoints (or keypoints[i]) 
+  // is the descriptor for keypoint j-th keypoint.  
+  printf("Found %lu keypoints for Output1\n",keypoints1.size());
+  for(k=0; k<keypoints1.size(); k++){
+    printf("Keypoints %d is %f %f\n",k,keypoints1[k].pt.x,keypoints1[k].pt.y);
+    
+  }
+  printf("Found %lu keypoints for Output2\n",keypoints2.size());
+  for(k=0; k<keypoints2.size(); k++){
+    printf("Keypoints %d is %f %f\n",k,keypoints2[k].pt.x,keypoints2[k].pt.y);
+  }
+
+  // matching descriptors -- Works only of images are of similar size and types
+  
+  BFMatcher matcher(NORM_L2);
+  vector<DMatch> matches;
+  matcher.match(descriptors1, descriptors2, matches);
+ 
+  // drawing the results
+  namedWindow("matches", 1);
+  Mat img_matches;
+  drawMatches(image_gray[0], keypoints1,sample_gray[0], keypoints2, matches, img_matches);
+  imshow("matches", img_matches);
+  
+  //  Mat *xx = harrisCornerDetection(&sample_gray[0]); 
+  //  namedWindow( "Input2", CV_WINDOW_AUTOSIZE );
+  //  imshow( "Input2",sample_gray[0]);
+  //  namedWindow( "Output2", CV_WINDOW_AUTOSIZE );
+  //  imshow( "Output2",*xx);
+
+  tstart = wallclock();  
+  double score = DBL_MAX;
+  int sample_winner = 0;
+  int image_winner = 0;
+  int coord_j_min = 0;
+  int coord_i_min = 0;  
+  for (int i=0; i< nbImages; i++){
+    fprintf(stderr,"-------------- Analyzing image: %d -----------------\n",i);
+    for (int k=0; k<nbSamples; k++){ 
+      double x = blockMatching(&(image_gray[i]),
+			       &(sample_gray[k]),
+			       4, resultBuffer[k], k);
+      if (x < score){
+	score = x;
+	sample_winner = k;
+	image_winner = i;
+	coord_j_min = (int) resultBuffer[sample_winner][0];
+	coord_i_min = (int) resultBuffer[sample_winner][4];
+      }
+    }
+  }
+  tend = wallclock();
+  printf("Second - Analysis took %f\n", tend - tstart);
+  printf("Best Match Sample %d, Image %d\n",sample_winner,image_winner);
+  //display the result                                                                                                                                                                                                                 
+  drawRectangle(&image_gray[image_winner],coord_i_min,coord_j_min,sample_gray[sample_winner].cols,sample_gray[sample_winner].rows);
+  namedWindow( "Input3", CV_WINDOW_AUTOSIZE );
+  imshow( "Input3",image_gray[image_winner]);
+  waitKey(0);
