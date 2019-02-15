@@ -16,7 +16,7 @@ endif
 
 ifdef cuda
 CCX=nvcc $(CXXFLAGS) $(OPT)
-SRC_CU=blockMatching_cuda.cu
+SRC_CU= blockMatching_cuda.cu 
 else
 CCX=g++ $(CXXFLAGS) $(OPT)
 endif
@@ -27,7 +27,7 @@ INCLUDE_PATH=/usr/include/libxml2
 OPENCV_LIBS=calib3d contrib core features2d flann highgui imgproc legacy ml objdetect ocl photo stitching superres ts video videostab
 LIBS=$(OPENCV_LIBS:%=opencv_%) xml2
 
-$(APP): $(SRC:%.cpp=%.o) $(SRC_CU:%.cu=%.o)
+$(APP): $(SRC_CU:%.cu=%.o) $(SRC:%.cpp=%.o) 
 	$(CCX) -o $@ $^ $(LIBS:%=-l%)
 
 %.o: %.cpp
@@ -39,17 +39,18 @@ $(APP): $(SRC:%.cpp=%.o) $(SRC_CU:%.cu=%.o)
 profile:
 	gprof $(APP) gmon.out > gmon.results
 
-blockMatching_cuda.o:                    blockMatching_cuda.cu   helper_cuda.h helper_string.h
-imageProcessing.o: imageProcessing.h     imageProcessing.cpp    globalVars.h globalVars.cpp routines.h
-utilities.o:	   imageProcessing.h	 utilities.cpp
-blockMatching.o:   imageProcessing.h	 blockMatching.cpp
-cornerDetection.o: imageProcessing.h	 cornerDetection.cpp
-transformImage.o:  imageProcessing.h	 transformImage.cpp
-filterImage.o:	   imageProcessing.h	 filterImage.cpp
-loadImages.o:	   imageProcessing.h	 loadImages.cpp		globalVars.h
-xml.o:		   imageProcessing.h	 xml.cpp		globalVars.h
-histogram.o:	   imageProcessing.h	 histogram.cpp		globalVars.h
-sensors.o:	   imageProcessing.h	 sensors.cpp		globalVars.h
+blockMatching_cuda.o:                    	 blockMatching_cuda.cu  
+blockMatching_kernel.o:                 	 blockMatching_kernel.cu   
+imageProcessing.o: 		 imageProcessing.h   imageProcessing.cpp    globalVars.h globalVars.cpp routines.h
+utilities.o:	   		 imageProcessing.h	 utilities.cpp
+blockMatching.o:   		 imageProcessing.h	 blockMatching.cpp
+cornerDetection.o: 		 imageProcessing.h	 cornerDetection.cpp
+transformImage.o:  	     imageProcessing.h	 transformImage.cpp
+filterImage.o:	 		 imageProcessing.h	 filterImage.cpp
+loadImages.o:	  		 imageProcessing.h	 loadImages.cpp		globalVars.h
+xml.o:		   			 imageProcessing.h	 xml.cpp		globalVars.h
+histogram.o:	   	 	 imageProcessing.h	 histogram.cpp		globalVars.h
+sensors.o:	   			 imageProcessing.h	 sensors.cpp		globalVars.h
 
 run0: $(APP)
 	./$(APP) -v images samples
@@ -97,8 +98,12 @@ run14: $(APP)
 	 ./$(APP) -v -sh  --histogram  --sensors images/flecheref.png 
 
 run15: $(APP)
-	 ./$(APP) -v -sh  --histogram  --blockmatching OrdresDrone/screen_9.yuv.png  OrdresDrone/montes.png
+	 time ./$(APP) -v -sh  --histogram  --blockmatching OrdresDrone/screen_9.yuv.png  OrdresDrone/montes.png
+	 
+run15cu: $(APP)
+	 ./$(APP) -v -sh  --histogram  --blockmatching_cuda OrdresDrone/screen_9.yuv.png  OrdresDrone/montes.png
 
+	 
 run16: $(APP)
 	 ./$(APP) -v -sh  --histogram  --blockmatching OrdresDrone/screen_16.yuv.png  samples/montes.png
 
