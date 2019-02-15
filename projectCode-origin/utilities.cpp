@@ -1,6 +1,7 @@
 #include "imageProcessing.h"
 #include "globalVars.h"
 
+
 bool startWith(const char *pre, const char *str){
   if (!pre || !str) return false;
   return strncmp(pre, str, strlen(pre)) == 0;

@@ -1,3 +1,5 @@
+#pragma once
+
 #include "imageProcessing.h"
 #include "globalVars.cpp"
 #include "routines.h"
@@ -142,6 +144,7 @@ int main(int argc, char *argv[]){
       if (sampleNum >= nbSamples) sampleNum = nbSamples-1 ;
     }
     if (Verbose)  std::cerr << "Using Sample "  << sampleNum <<"\n";
+  
     if (nbImages > 0) {
       double x = blockMatchingWithScalingAndRotation(&(image_gray[0]),&(sample_gray[sampleNum]),1,resultBuffer[sampleNum],sampleNum);
       int *ptj = (int *) &resultBuffer[sampleNum][0];

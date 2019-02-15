@@ -1,7 +1,7 @@
 #include "imageProcessing.h"
 #include "globalVars.h"
 #include "routines.h"
-#ifdef CUDA_USED
+
 /*
  * blockMatchingFunction 
  */
@@ -117,7 +117,6 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
     cv::Mat *rot = rotateImage(blocki,r);
     for (float s = 1.0; s > 0.3; s = s-0.5){
       printf("Trying scaling %f\n",s);
-	  printf("sans cuda \n");
       cv::Mat *block = scaleImage(rot,s);
       showOneImage(*block);      
       
@@ -130,13 +129,20 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
       int iend =  im_rows - bl_rows;
       int jstart = 0;
       int jend =  im_cols - bl_cols;
-
+            printf("!!!!! !!!!!! %i\n",iend-stride+1);
+            printf("!!!!!! !!!!!!%i\n",jend-stride+1);
 
 
 	int nb_threadi = (iend-stride+1)/stride;
 	int nb_threadj = (jend-stride+1)/stride;
 	unsigned char *im_gpu;
 	unsigned char *bl_gpu;
+	
+	cudaMalloc((void**)&im_gpu,sizeof(unsigned char*));
+	cudaMalloc((void**)&bl_gpu,sizeof(unsigned char*));
+	
+	cudaMemCpy(im_gpu,im,sizeof(unsigned char*),cudaMemcpyHostToDevice);
+	cudaMemCpy(bl_gpu,bl,sizeof(unsigned char*),cudaMemcpyHostToDevice);
 
       for(int i = istart;i < iend -stride+1;i+=stride){
 		for(int j = jstart;j < jend-stride+1;j+=stride){
@@ -174,4 +180,4 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
 		       samplenum, coord_j_min,coord_i_min,minVal,bestScale,bestRotation); 
   return minVal;
 }
-#endif
+
