@@ -58,8 +58,7 @@ __global__ void blockMatching_kernel(int jend,int stride,unsigned char* im, int 
 			
 	tab_data_out[tid]=temp;
 	__syncthreads();
-	// à optimiser
-	/*
+	// à optimiser 
 	if(threadIdx.x==0 && threadIdx.y == 0){
 		for(int i = 1; i < blockDim.x * blockDim.y; i++){
 			if( tab_data_out[i].minVal < temp.minVal){
@@ -76,31 +75,6 @@ __global__ void blockMatching_kernel(int jend,int stride,unsigned char* im, int 
 		
 
 	}
-	*/
-	for (unsigned int s = 1; s<blockDim.x * blockDim.y; s *=2){
-		int index = 2 * s * threadIdx.x;
-		
-		if (index < blockDim.x * blockDim.y){
-
-			if (tab_data_out[index].minVal > tab_data_out[index + s].minVal){
-				if((index + s) < blockDim.x * blockDim.y){
-					tab_data_out[index] = tab_data_out[index + s];			
-				}	
-			}
-		}
-		__syncthreads();
-	}
-
-	if(threadIdx.x==0){
-		result[blockIdx.x] = tab_data_out[0];
-		printf("threadId 0 checking result %f MinVal\n", tab_data_out[0].minVal);
-		/*result[blockIdx.x].minVal = tab_data_out[0].minVal;
-		result[blockIdx.x].coord_i_min = tab_data_out[0].coord_i_min;
-		result[blockIdx.x].coord_j_min = tab_data_out[0].coord_j_min;*/
-
-	}
-
-
 	
 	  
 }
