@@ -1,12 +1,19 @@
+#pragma once
+
+#ifndef BLOCK_MATCHING_CU
+#define BLOCK_MATCHING_CU
+
 #include "imageProcessing.h"
 #include "globalVars.h"
 #include "routines.h"
-#ifdef CUDA_USED
+#include "blockMatching_kernel.cu"
+#define CUDA_USE
+
 /*
  * blockMatchingFunction 
  */
 
-double computeMatch(unsigned char *im,
+double computeMatch2(unsigned char *im,
 		    int im_step,
 		    unsigned char *bl,
 		    int bl_step,
@@ -61,7 +68,7 @@ double blockMatching(cv::Mat *image,
   // nb thread = iend-stride+1/stride)
   for(int i = istart;i < iend -stride+1;i+=stride){
     for(int j = jstart;j < jend-stride+1;j+=stride){
-      double x = computeMatch(im,im_step,
+      double x = computeMatch2(im,im_step,
 			      bl,bl_step,bl_cols,bl_rows,
 			      i,j,stride);
       if(x < minVal){
@@ -95,11 +102,10 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
 		     int stride,
 		     unsigned char *res,
 		     int samplenum){
-  
+
   if (!image || !blocki) return DBL_MAX;
 
-  //this code has memory leaks...
-
+      printf("start blockMatching\n");
   unsigned char *im = (unsigned char*)(image->data);
   int im_step = image->step;
   int im_cols = image->cols;
@@ -111,49 +117,68 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
   double minVal =  DBL_MAX;
   float bestScale = 0;
   int bestRotation = 0;
+
+ //change part
+    unsigned char *im_gpu;
+	unsigned char *bl_gpu;
+	DataOut* result_cpu;
+	DataOut* result_gpu;
+    int nbBlock = 1;
+	result_cpu = (DataOut*)malloc(nbBlock*sizeof(DataOut));
+
+      
+	
+	size_t imSize =im_cols * im_rows * sizeof(unsigned char);
+
+  //this code has memory leaks...
+    cudaMalloc((void**)&result_gpu,nbBlock*sizeof(DataOut));
+    cudaMalloc((void**)&im_gpu,imSize );
+    cudaMalloc((void**)&bl_gpu,imSize); 
+
+    cudaMemcpy(im_gpu,im,imSize ,cudaMemcpyHostToDevice);
+
+ 
     
-  for (int r = -6; r < 6; r = r+4){
+  for (int r = -10; r < 10; r = r+5){
     printf("Trying rotation %d\n",r);
     cv::Mat *rot = rotateImage(blocki,r);
-    for (float s = 1.0; s > 0.3; s = s-0.5){
+    for (float s = 1.0; s > 0.3; s = s-0.3){
       printf("Trying scaling %f\n",s);
-	  printf("sans cuda \n");
       cv::Mat *block = scaleImage(rot,s);
       showOneImage(*block);      
-      
       unsigned char *bl = (unsigned char*)(block->data);
       int bl_step = block->step;
       int bl_cols = block->cols;
       int bl_rows = block->rows;      
       
-      int istart = 0;
       int iend =  im_rows - bl_rows;
-      int jstart = 0;
+
       int jend =  im_cols - bl_cols;
-
-
 
 	int nb_threadi = (iend-stride+1)/stride;
 	int nb_threadj = (jend-stride+1)/stride;
-	unsigned char *im_gpu;
-	unsigned char *bl_gpu;
+	
+	
+    dim3  threads(nb_threadi, nb_threadj);
+    size_t blSize =bl_cols * bl_rows * sizeof(unsigned char);
 
-      for(int i = istart;i < iend -stride+1;i+=stride){
-		for(int j = jstart;j < jend-stride+1;j+=stride){
-		  double x = computeMatch(im,im_step,
-					  bl,bl_step,bl_cols,bl_rows,
-					  i,j,stride);
-		  if(x < minVal){
-			minVal = x;
-			coord_i_min = i;
-			coord_j_min = j;
+	cudaMemcpy(bl_gpu,bl,blSize,cudaMemcpyHostToDevice);
+	cudaMemcpy(result_gpu,result_cpu,nbBlock*sizeof(DataOut),cudaMemcpyHostToDevice);
+	
+	blockMatching_kernel<<<1, iend, 2000>>>(jend, stride, im_gpu, im_step, bl_gpu,
+	bl_step, bl_cols, bl_rows, result_gpu);  
+
+	cudaMemcpy(result_cpu, result_gpu, nbBlock*sizeof(DataOut), cudaMemcpyDeviceToHost);
+	
+			
+	if(minVal > result_cpu[0].minVal){
+		coord_i_min = result_cpu[0].coord_i_min;
+		coord_j_min = result_cpu[0].coord_j_min;
+		minVal = result_cpu[0].minVal;
 			bestScale = s;
 			bestRotation = r;
-
-		  }
-		}
-      }
-      
+	}
+	
       if (Verbose)   fprintf(stderr,"sample cols: %d\n",bl_cols);
       if (Verbose)   fprintf(stderr,"sample rows: %d\n",bl_rows);
       if (Verbose)   fprintf(stderr,"sample step: %d\n",bl_step);
@@ -169,9 +194,12 @@ double blockMatchingWithScalingAndRotation(cv::Mat *image,
   memcpy(&(res[4]),&coord_j_min,sizeof(int));
   memcpy(&(res[8]),&minVal,sizeof(double));
   memcpy(&(res[16]),&samplenum,sizeof(int));
-    
+ 
   if (Verbose) fprintf(stderr,"%d sample x=%d, y=%d --> %f (scale %f, rot %d) \n",
-		       samplenum, coord_j_min,coord_i_min,minVal,bestScale,bestRotation); 
+		       samplenum, coord_j_min,coord_i_min,minVal,bestScale,bestRotation);
+cudaFree((void**)&result_gpu);
+    cudaFree((void**)&im_gpu);
+    cudaFree((void**)&bl_gpu); 
   return minVal;
 }
 #endif
